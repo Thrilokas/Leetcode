@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int colIndex = 0;
+
+        if (ruleKey.equals("color")) {
+            colIndex = 1;
+        } else if (ruleKey.equals("name")) {
+            colIndex = 2;
+        }
+
+        int count = 0;
+
+        for (List<String> item : items) {
+            if (item.get(colIndex).equals(ruleValue)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        List<List<String>> items = Arrays.asList(
+            Arrays.asList("phone", "blue", "pixel"),
+            Arrays.asList("computer", "silver", "lenovo"),
+            Arrays.asList("phone", "gold", "iphone")
+        );
+
+        System.out.println(sol.countMatches(items, "color", "silver"));
+        System.out.println(sol.countMatches(items, "type", "phone"));
+    }
+}
