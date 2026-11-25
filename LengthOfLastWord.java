@@ -1,0 +1,25 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        s = s.trim();
+
+        int count = 0;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
+                break;
+            }
+
+            count++;
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        System.out.println(sol.lengthOfLastWord("Hello World"));
+        System.out.println(sol.lengthOfLastWord("   fly me   to   the moon  "));
+        System.out.println(sol.lengthOfLastWord("luffy is still joyboy"));
+    }
+}
