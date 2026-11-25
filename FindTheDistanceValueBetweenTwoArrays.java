@@ -1,0 +1,38 @@
+class Solution {
+    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+        int count = 0;
+
+        for (int num1 : arr1) {
+            boolean valid = true;
+
+            for (int num2 : arr2) {
+                if (Math.abs(num1 - num2) <= d) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        System.out.println(sol.findTheDistanceValue(
+            new int[]{4, 5, 8},
+            new int[]{10, 9, 1, 8},
+            2
+        ));
+
+        System.out.println(sol.findTheDistanceValue(
+            new int[]{1, 4, 2, 3},
+            new int[]{-4, -3, 6, 10, 20, 30},
+            3
+        ));
+    }
+}
